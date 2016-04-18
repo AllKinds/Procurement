@@ -1,0 +1,23 @@
+{
+  "name": "procurement",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Web application for procurement managing and viewing",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "Procurement"
+  ],
+  "author": "Yonatan Tal",
+  "dependencies": {
+    "angular-material": "^1.0.7",
+    "express": "^4.13.4",
+    "font-awesome": "^4.6.1",
+    "mongoose": "^4.4.12",
+    "morgan": "^1.7.0"
+
+  }
+}

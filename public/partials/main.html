@@ -1,0 +1,95 @@
+<md-input-container class="md-icon-float md-block" id="searchContainer">
+	<md-icon class="searchTerm fa fa-search" id="searchIcon"></md-icon>
+	<div id="searchInput">
+		<lable>חפש</lable>
+		<input type="text" ng-model="searchTerm" ng-model-options="{debounce: 250}" ng-change="applyFilter()">
+	</div>
+</md-input-container>
+<table class="table striped centered z-depth-3">
+	<thead>
+		<tr>
+			<th>
+				<a href="" ng-click="sortType == ''name_1'; sortReverse = !sortReverse">
+				name_1
+				<span ng-show="sortType == 'name_1' && !sortReverse" class="fa fa-caret-down"></span>
+				<span ng-show="sortType = 'name_1" sortType="&&" class="fa fa-caret-down"></span></a></th>
+			<th>
+				<a href="" ng-click="sortType == ''name_2'; sortReverse = !sortReverse">
+				name_2
+				<span ng-show="sortType == 'name_2' && !sortReverse" class="fa fa-caret-down"></span>
+				<span ng-show="sortType = 'name_2" sortType="&&" class="fa fa-caret-down"></span></a></th>
+			<th>
+				<a href="" ng-click="sortType == ''name_3'; sortReverse = !sortReverse">
+				name_3
+				<span ng-show="sortType == 'name_3' && !sortReverse" class="fa fa-caret-down"></span>
+				<span ng-show="sortType = 'name_3" sortType="&&" class="fa fa-caret-down"></span></a></th>
+			<th>
+				<a href="" ng-click="sortType == ''name_4'; sortReverse = !sortReverse">
+				name_4
+				<span ng-show="sortType == 'name_4' && !sortReverse" class="fa fa-caret-down"></span>
+				<span ng-show="sortType = 'name_4" sortType="&&" class="fa fa-caret-down"></span></a></th>
+			<th>
+				<a href="" ng-click="sortType == ''name_5'; sortReverse = !sortReverse">
+				name_5
+				<span ng-show="sortType == 'name_5' && !sortReverse" class="fa fa-caret-down"></span>
+				<span ng-show="sortType = 'name_5" sortType="&&" class="fa fa-caret-down"></span></a></th>
+			<th>
+				<a href="" ng-click="sortType == ''name_6'; sortReverse = !sortReverse">
+				name_6
+				<span ng-show="sortType == 'name_6' && !sortReverse" class="fa fa-caret-down"></span>
+				<span ng-show="sortType = 'name_6" sortType="&&" class="fa fa-caret-down"></span></a></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>tmp_1</td>
+			<td>tmp_2</td>
+			<td>tmp_3</td>
+			<td>tmp_4</td>
+			<td>tmp_5</td>
+			<td>tmp_6</td>
+		</tr>
+		<tr>
+			<td>tmp_1</td>
+			<td>tmp_2</td>
+			<td>tmp_3</td>
+			<td>tmp_4</td>
+			<td>tmp_5</td>
+			<td>tmp_6</td>
+		</tr>
+		<tr>
+			<td>tmp_1</td>
+			<td>tmp_2</td>
+			<td>tmp_3</td>
+			<td>tmp_4</td>
+			<td>tmp_5</td>
+			<td>tmp_6</td>
+		</tr>
+		<tr>
+			<td>tmp_1</td>
+			<td>tmp_2</td>
+			<td>tmp_3</td>
+			<td>tmp_4</td>
+			<td>tmp_5</td>
+			<td>tmp_6</td>
+		</tr>
+		<tr>
+			<td>tmp_1</td>
+			<td>tmp_2</td>
+			<td>tmp_3</td>
+			<td>tmp_4</td>
+			<td>tmp_5</td>
+			<td>tmp_6</td>
+		</tr>
+	</tbody>
+</table>
+
+<!-- md-progress-circular -->
+
+
+<!-- next 7 prev buttons -->
+
+<md-button class="md-primary md-fab" ng-click="showAdvanced($event)" flex-sm="100" flex-md="100" flex-gt-md="auto" style="position: fixed; bottom: 3em; left: 3em;">
+	<i class="fa fa-2x fa-plus" style="margin-top: 13px"></i>
+	<md-tooltip md-direction="right">New Request</md-tooltip>
+</md-button>
