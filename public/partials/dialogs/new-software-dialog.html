@@ -1,0 +1,117 @@
+<md-dialog class="myDialog" aria-lable="New Software" ng-cloak>
+	<form>
+		<md-toolbar>
+			<div class="md-toolbar-tools">
+				<h2>הוספת תוכנה</h2>
+				<span flex></span>
+				<md-button class="md-icon-button" ng-click="cancel()">
+					<md-icon class="fa fa-times" aria-lable="Close Dialog"></md-icon>
+				</md-button>
+			</div>
+		</md-toolbar>
+		
+		<md-dialog-content style="max-width:800px; max-height:810px;">
+			<div class="md-dialog-content">
+				<div layout="row" layout-wrap class = "inputDiv rtl">
+					<md-input-container>
+						<label>מקט ספיר</label>
+						<input ng-model="newSoftware.name" required>	
+					</md-input-container>
+					<md-input-container>
+						<label>מקט יצרן</label>
+						<input ng-model="newSoftware.id" >	
+					</md-input-container>
+				</div>
+				<div layout="row" layout-wrap class = "inputDiv rtl">
+					<md-input-container>
+						<label>מקט תלתן</label>
+						<input ng-model="newSoftware.price" >	
+					</md-input-container>
+					<md-input-container>
+						<label>Publisher</label>
+						<input ng-model="newSoftware.version" required>	
+					</md-input-container>
+					
+				</div>
+				<div layout="row" layout-wrap class = "inputDiv rtl">
+					<md-input-container>
+						<label>soft_con</label>
+						<input ng-model="newSoftware.company" >	
+					</md-input-container>
+					<md-input-container>
+						<label>קבוצת מוצר</label>
+						<input ng-model="newSoftware.company" >	
+					</md-input-container>					
+				</div>
+				<div layout="row" layout-wrap class = "inputDiv rtl">
+					<md-input-container>
+						<label>פלטפורמה</label>
+						<input ng-model="newSoftware.company" >	
+					</md-input-container>
+					<md-input-container>
+						<label>צורך מודיעיני</label>
+						<input ng-model="newSoftware.company" >	
+					</md-input-container>
+				</div>
+				<div layout="row" layout-wrap class = "inputDiv rtl">
+					<md-input-container>
+						<label>עלות רשיון בודד (לאחר הנחה)</label>
+						<input ng-model="newSoftware.company" >	
+					</md-input-container>
+					<md-input-container>
+						<label>עלות תמיכה/חיזוק</label>
+						<input ng-model="newSoftware.company" >	
+					</md-input-container>	
+				</div>
+				<div class="inputDiv rtl">
+					<md-input-container class="md-block" style="heigh: auto;">
+						<label>type</label>
+						<textarea ng-model="newSoftware.extraInfo" cols="1" rows="5"></textarea>
+					</md-input-container>
+					<md-input-container class="md-block" style="heigh: auto;">
+						<label>הערות</label>
+						<textarea ng-model="newSoftware.extraInfo" cols="1" rows="5"></textarea>
+					</md-input-container>
+					<md-input-container class="md-block" style="heigh: auto;">
+						<label>תחליפים</label>
+						<textarea ng-model="newSoftware.extraInfo" cols="1" rows="5"></textarea>
+					</md-input-container>
+				</div>
+				<div layout="row" layout-wrap class = "inputDiv rtl">
+					<md-input-container>
+						<label>עלות שידרוג</label>
+						<input ng-model="newSoftware.company" >	
+					</md-input-container>
+					<md-input-container>
+						<label>כלי ניתור</label>
+						<input ng-model="newSoftware.company" >	
+					</md-input-container>					
+				</div>
+				
+				<div layout="row" layout-wrap class = "inputDiv rtl">
+					<md-input-container>
+						<label>type</label>
+						<input ng-model="newSoftware.company" >	
+					</md-input-container>
+					<md-input-container>
+						<label>type</label>
+						<input ng-model="newSoftware.info" >	
+					</md-input-container>		
+				</div>
+
+				<div class = "inputDiv rtl">
+					<md-input-container class="md-block" style="heigh: auto;">
+						<label>מידע נוסף</label>
+						<textarea ng-model="newSoftware.extraInfo" cols="1" rows="5"></textarea>
+					</md-input-container>		
+				</div>
+				
+			</div>
+		</md-dialog-content>
+		<md-dialog-actions layout="row">
+			<span flex></span>
+			<md-button ng-click="cancel()">בטל</md-button>
+			<md-button>אשר</md-button>
+		</md-dialog-actions>
+	</form>
+</md-dialog>

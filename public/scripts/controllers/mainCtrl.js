@@ -1,3 +1,13 @@
+
+temp_Reuests =[
+	['a','a','a','a','a','a'],
+	['a','a','a','a','a','a'],
+	['a','a','a','a','a','a'],
+	['a','a','a','a','a','a'],
+	['a','a','a','a','a','a'],
+	['a','a','a','a','a','a'],
+]
+
 procurement.controller('mainCtrl', function ($scope, $rootScope, $mdDialog, $filter, $mdToast, $routeParams){
 	$scope.tableStartIndex = 0;
 	$scope.tableEndIndex = 50;
@@ -12,12 +22,25 @@ procurement.controller('mainCtrl', function ($scope, $rootScope, $mdDialog, $fil
 		$scope.tableEndIndex -= 50;
 	};
 
+	$scope.limitList = function (index) {
+		return (index >= $scope.tableStartIndex && index <= $scope.tableEndIndex);
+	}
+
+	$scope.uiRequests = temp_Reuests; 
+	
 	$scope.applyFilter = function() {
-		//TODO
+		if ($scope.searchTerm.length > 0) {
+			$scope.tableStartIndex = 0;
+			$scope.tableEndIndex = 50;
+		}
+		$scope.resetFilter();
+		$scope.uiRequests = $filter('filter')($scope.uiRequests, $scope.searchTerm);
 	};
 	
 	$scope.resetFilter = function() {
-		//TODO
+		//$scope.uiRequests = $scope.requests;
+		$scope.uiRequests = temp_Reuests	;
+		$scope.uiRequests = $filter('filter')($scope.uiRequests, $scope.wantedList);
 	};
 	
 	// $scope.sortType = 'name';
@@ -27,7 +50,7 @@ procurement.controller('mainCtrl', function ($scope, $rootScope, $mdDialog, $fil
 	$scope.showAdvanced = function (ev) {
 		$mdDialog.show({
 			controller: DialogCtrl,
-			templateUrl: 'partials/dialogs/new-request-dialog.html',
+			templateUrl: 'partials/dialogs/new-software-dialog.html',
 			parent: angular.element(document.body),
 			targetEvent: ev,
 			clickOutsideToClose: false

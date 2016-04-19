@@ -31,8 +31,11 @@ md-sidenav#main-sidenav {
 	padding: 0;
 }
 
+.menu-list > li > a {
+	font-size: larger
+}
+
 .menu-item { /* a */
-	width: 100%;
 	text-align: right;
 	font-size: large;
 	padding: 0;
@@ -51,8 +54,9 @@ md-sidenav#main-sidenav {
 	background-color: white;
 	height: 100%;
     position: fixed;
-    width: 80%;
+    width: 78%;
     overflow-y: auto;
+	padding-right: 1%;
 }
 
 #searchContainer {
@@ -197,4 +201,29 @@ td, th {
 	table.responsive-table.bordered tbody tr {
 		border-right: 1px solid #d0d0d0
 	}
+}
+
+
+/*---------------------------------------------------------------------------*/
+
+.inputDiv.rtl label {
+	left: initial;
+	    color: rgba(0,0,0,0.5);
+}
+
+md-dialog-content md-input-container {
+	flex: 45;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+md-dialog.myDialog {
+	width: 70%;
+	max-width: 700px;
+}
+
+
+input:required {
+	color: red;
+	background-color: blue;
 }
