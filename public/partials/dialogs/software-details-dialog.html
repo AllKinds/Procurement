@@ -1,0 +1,71 @@
+<md-dialog aria-lable="Software information" ng-cloak style="width:500px;">
+	<form>
+		<md-toolbar>
+			<div class="md-toolbar-tools">
+				<h2>מידע על התוכנה</h2>
+				<span flex></span>
+				<md-button class="md-icon-button" ng-click="cancel()" aria-lablel="Close Dialog">
+					<md-icon class="fa fa-times" aria-lablel="Close Dialog"></md-icon>
+				</md-button>
+			</div>
+		</md-toolbar>
+		
+		<md-dialog-content>
+			<div ng-if="!software">
+				<h3>Error!</h3>
+			</div>
+			<div ng-if="software" class="md-dialog-content">
+				<md-content>
+					<md-list>
+						<md-list-item class="md-2-line">
+							<div class="md-list-item-text">
+								<div layout=row layout-wrap>
+									<h3 flex="45">producerId</h3>
+									<div flex="10"></div>
+									<h3 flex="45">publisherName</h3>
+								</div>
+								<div layout=row layout-wrap>
+									<p flex="45">{{ software.producerId }}</p>
+									<div flex="10"></div>
+									<p flex="45">{{ software.publisherName }}</p>
+								</div>
+							</div>
+						</md-list-item>	
+						<md-list-item class="md-2-line">
+							<div class="md-list-item-text">
+								<div layout=row layout-wrap>
+									<h3 flex="45">softCon</h3>
+									<div flex="10"></div>
+									<h3 flex="45">licenceCost</h3>
+								</div>
+								<div layout=row layout-wrap>
+									<p flex="45">{{ software.softCon }}</p>
+									<div flex="10"></div>
+									<p flex="45">{{ software.licenceCost }}</p>
+								</div>
+							</div>
+						</md-list-item>	
+						<md-list-item class="md-2-line">
+							<div class="md-list-item-text">
+								<div layout=row layout-wrap>
+									<h3 flex="45">type</h3>
+									<div flex="10"></div>
+									<h3 flex="45">platform</h3>
+								</div>
+								<div layout=row layout-wrap>
+									<p flex="45">{{ software.type }}</p>
+									<div flex="10"></div>
+									<p flex="45">{{ software.platform }}</p>
+								</div>
+							</div>
+						</md-list-item>	
+					</md-list>
+				</md-content>
+			</div>
+		</md-dialog-content>
+		<md-dialog-actions layout="row">
+			<span flex></span>
+			<md-button ng-click="purchaseSoftware()">רכש</md-button>
+		</md-dialog-actions>
+	</form>
+</md-dialog>

@@ -15,88 +15,77 @@
 				<div layout="row" layout-wrap class = "inputDiv rtl">
 					<md-input-container>
 						<label>מקט ספיר</label>
-						<input ng-model="newSoftware.name" required>	
+						<input ng-model="newSoftware.catNoSapir">	
 					</md-input-container>
 					<md-input-container>
 						<label>מקט יצרן</label>
-						<input ng-model="newSoftware.id" >	
+						<input ng-model="newSoftware.producerId" required>	
 					</md-input-container>
 				</div>
 				<div layout="row" layout-wrap class = "inputDiv rtl">
 					<md-input-container>
 						<label>מקט תלתן</label>
-						<input ng-model="newSoftware.price" >	
+						<input ng-model="newSoftware.catNoTltn" >	
 					</md-input-container>
 					<md-input-container>
 						<label>Publisher</label>
-						<input ng-model="newSoftware.version" required>	
+						<input ng-model="newSoftware.publisherName" required>	
 					</md-input-container>
 					
 				</div>
 				<div layout="row" layout-wrap class = "inputDiv rtl">
 					<md-input-container>
 						<label>soft_con</label>
-						<input ng-model="newSoftware.company" >	
+						<input ng-model="newSoftware.softCon" required>	
 					</md-input-container>
 					<md-input-container>
 						<label>קבוצת מוצר</label>
-						<input ng-model="newSoftware.company" >	
+						<input ng-model="newSoftware.productGroup" >	
 					</md-input-container>					
 				</div>
 				<div layout="row" layout-wrap class = "inputDiv rtl">
 					<md-input-container>
 						<label>פלטפורמה</label>
-						<input ng-model="newSoftware.company" >	
+						<input ng-model="newSoftware.platform" >	
 					</md-input-container>
 					<md-input-container>
 						<label>צורך מודיעיני</label>
-						<input ng-model="newSoftware.company" >	
+						<input ng-model="newSoftware.intelNeed" >	
 					</md-input-container>
 				</div>
 				<div layout="row" layout-wrap class = "inputDiv rtl">
 					<md-input-container>
 						<label>עלות רשיון בודד (לאחר הנחה)</label>
-						<input ng-model="newSoftware.company" >	
+						<input ng-model="newSoftware.licenceCost" required>	
 					</md-input-container>
 					<md-input-container>
 						<label>עלות תמיכה/חיזוק</label>
-						<input ng-model="newSoftware.company" >	
+						<input ng-model="newSoftware.supportCost" >	
 					</md-input-container>	
 				</div>
 				<div class="inputDiv rtl">
 					<md-input-container class="md-block" style="heigh: auto;">
 						<label>type</label>
-						<textarea ng-model="newSoftware.extraInfo" cols="1" rows="5"></textarea>
+						<textarea ng-model="newSoftware.type" cols="1" rows="5"></textarea>
 					</md-input-container>
 					<md-input-container class="md-block" style="heigh: auto;">
 						<label>הערות</label>
-						<textarea ng-model="newSoftware.extraInfo" cols="1" rows="5"></textarea>
+						<textarea ng-model="newSoftware.comments" cols="1" rows="5"></textarea>
 					</md-input-container>
 					<md-input-container class="md-block" style="heigh: auto;">
 						<label>תחליפים</label>
-						<textarea ng-model="newSoftware.extraInfo" cols="1" rows="5"></textarea>
+						<textarea ng-model="newSoftware.alternatives" cols="1" rows="5"></textarea>
 					</md-input-container>
 				</div>
 				<div layout="row" layout-wrap class = "inputDiv rtl">
 					<md-input-container>
 						<label>עלות שידרוג</label>
-						<input ng-model="newSoftware.company" >	
+						<input ng-model="newSoftware.updateCost" >	
 					</md-input-container>
 					<md-input-container>
-						<label>כלי ניתור</label>
-						<input ng-model="newSoftware.company" >	
+						<label>כלי ניטור</label>
+						<input ng-model="newSoftware.monitorTools" >	
 					</md-input-container>					
-				</div>
-				
-				<div layout="row" layout-wrap class = "inputDiv rtl">
-					<md-input-container>
-						<label>type</label>
-						<input ng-model="newSoftware.company" >	
-					</md-input-container>
-					<md-input-container>
-						<label>type</label>
-						<input ng-model="newSoftware.info" >	
-					</md-input-container>		
 				</div>
 
 				<div class = "inputDiv rtl">
@@ -111,7 +100,7 @@
 		<md-dialog-actions layout="row">
 			<span flex></span>
 			<md-button ng-click="cancel()">בטל</md-button>
-			<md-button>אשר</md-button>
+			<md-button ng-click="submitNewSoftware()">אשר</md-button>
 		</md-dialog-actions>
 	</form>
 </md-dialog>

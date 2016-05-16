@@ -1,25 +1,26 @@
 
 temp_Reuests =[
 	['a','a','a','a','a','a'],
-	['a','a','a','a','a','a'],
-	['a','a','a','a','a','a'],
-	['a','a','a','a','a','a'],
-	['a','a','a','a','a','a'],
-	['a','a','a','a','a','a'],
+	['b','b','b','b','b','c'],
+	['c','c','c','c','d','e'],
+	['a','d','d','d','d','e'],
+	['a','e','e','e','f','a'],
+	['f','f','f','e','f','a'],
 ]
 
-procurement.controller('mainCtrl', function ($scope, $rootScope, $mdDialog, $filter, $mdToast, $routeParams){
+procurement.controller('mainCtrl', function ($scope, $rootScope, $mdDialog, $filter, $mdToast, $routeParams, requestService){
+	$scope.firstload = $scope.$parent.firstLoad;
 	$scope.tableStartIndex = 0;
-	$scope.tableEndIndex = 50;
+	$scope.tableEndIndex = 10;
 
 	$scope.nextPage = function() {
-		$scope.tableStartIndex += 50;
-		$scope.tableEndIndex += 50;
+		$scope.tableStartIndex += 10;
+		$scope.tableEndIndex += 10;
 	};
 
 	$scope.prevPage = function() {
-		$scope.tableStartIndex -= 50;
-		$scope.tableEndIndex -= 50;
+		$scope.tableStartIndex -= 10;
+		$scope.tableEndIndex -= 10;
 	};
 
 	$scope.limitList = function (index) {
@@ -31,7 +32,7 @@ procurement.controller('mainCtrl', function ($scope, $rootScope, $mdDialog, $fil
 	$scope.applyFilter = function() {
 		if ($scope.searchTerm.length > 0) {
 			$scope.tableStartIndex = 0;
-			$scope.tableEndIndex = 50;
+			$scope.tableEndIndex = 10;
 		}
 		$scope.resetFilter();
 		$scope.uiRequests = $filter('filter')($scope.uiRequests, $scope.searchTerm);
@@ -39,13 +40,20 @@ procurement.controller('mainCtrl', function ($scope, $rootScope, $mdDialog, $fil
 	
 	$scope.resetFilter = function() {
 		//$scope.uiRequests = $scope.requests;
-		$scope.uiRequests = temp_Reuests	;
+		$scope.uiRequests = $scope.softwares	;
 		$scope.uiRequests = $filter('filter')($scope.uiRequests, $scope.wantedList);
 	};
 	
 	// $scope.sortType = 'name';
 	// $scope.sortReverse = false;
 	// $scope.searchTerm = '';	
+	
+	requestService.get()
+		.then(function (softwares) {
+			$scope.firstLoad = $scope.$parent.firstLoad = false;
+			$scope.softwares = softwares;
+			$scope.resetFilter();
+		});
 	
 	$scope.showAdvanced = function (ev) {
 		$mdDialog.show({
@@ -57,12 +65,12 @@ procurement.controller('mainCtrl', function ($scope, $rootScope, $mdDialog, $fil
 		})
 			.then(function (data) {
 			// Submited
-				requestService.create(data).success(function (request) {
+				requestService.createSoftware(data).success(function (request) {
 					$mdToast.show(
 						$mdToast.simple()
 							.content('הבקשה נשמרה')
 							.position('bottom right')
-							.hideDelat(3000)
+							.hideDelay(3000)
 					);
 					// socket.emit
 				}).error(function (err) {
@@ -70,7 +78,7 @@ procurement.controller('mainCtrl', function ($scope, $rootScope, $mdDialog, $fil
 						$mdToast.simple()
 							.content(err)
 							.position('bottom right')
-							.hideDelat(3000)
+							.hideDelay(3000)
 						);
 				});
 			}, function(){
@@ -78,22 +86,38 @@ procurement.controller('mainCtrl', function ($scope, $rootScope, $mdDialog, $fil
 			});
 	};
 	
-	$scope.showRequestDetails = function (ev) {
+	$scope.showSoftwareDetails = function (ev) {
 		$mdDialog.show({
-			controller: 'requestCtrl',
+			controller: 'softwareCtrl',
 			resolve: {
 				id: function () {
 					return ev.currentTarget.id;
 				}
 			},
-			templateUrl: 'partials/dialogs/request-details-dialog.html',
+			templateUrl: 'partials/dialogs/software-details-dialog.html',
 			parent: angular.element(document.body),
 			targetEvent: ev,
 			clickOutsideToClose: true
 		})
 			.then(function (data) {
-				// Applied
-			}, function () {
+			// Submited
+				requestService.createPurchase(data).success(function (request) {
+					$mdToast.show(
+						$mdToast.simple()
+							.content('הרכישה התבצעה')
+							.position('bottom right')
+							.hideDelay(3000)
+					);
+					// socket.emit
+				}).error(function (err) {
+					$mdToast.show(
+						$mdToast.simple()
+							.content(err)
+							.position('bottom right')
+							.hideDelay(3000)
+						);
+				});
+			}, function(){
 				// Canceled
 			});
 	};
@@ -113,9 +137,19 @@ function DialogCtrl($scope, $mdDialog) {
 	
 	// $scope.$watch
 	
-	$scope.reqest = function () {
+	$scope.submitNewSoftware = function () {
 		var data = {
-			// req data
+			// catNoSapir: 	$scope.newSoftware.catNoSapir,
+			producerId: 	$scope.newSoftware.producerId ,
+			// catNoTltn: 		$scope.newSoftware.catNoTltn ,
+			publisherName: 		$scope.newSoftware.publisherName,
+			softCon: 		$scope.newSoftware.softCon ,
+			// productGroup: 	$scope.newSoftware.productGroup ,
+			platform: 		$scope.newSoftware.platform ,
+			// intelNeed: 		$scope.newSoftware.intelNeed ,
+			licenceCost: 	$scope.newSoftware.licenceCost ,
+			supportCost: 	$scope.newSoftware.supportCost ,
+			type: 			$scope.newSoftware.type 
 		};
 		
 		$mdDialog.hide(data)

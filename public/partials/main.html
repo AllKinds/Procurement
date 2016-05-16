@@ -10,67 +10,27 @@
 	<thead>
 		<tr>
 			<th>
-				name_1
+				מק"ט יצרן
 			<th>
-				name_2
+				Publisher
 			<th>
-				name_3
+				Soft Con
 			<th>
-				name_4
+				מחיר
 			<th>
-				name_5
+				Type
 			<th>
-				name_6
+				Platform
 		</tr>
 	</thead>
 	<tbody>
-		<tr>
-			<td>tmp_1</td>
-			<td>tmp_2</td>
-			<td>tmp_3</td>
-			<td>tmp_4</td>
-			<td>tmp_5</td>
-			<td>tmp_6</td>
-		</tr>
-		<tr>
-			<td>tmp_1</td>
-			<td>tmp_2</td>
-			<td>tmp_3</td>
-			<td>tmp_4</td>
-			<td>tmp_5</td>
-			<td>tmp_6</td>
-		</tr>
-		<tr>
-			<td>tmp_1</td>
-			<td>tmp_2</td>
-			<td>tmp_3</td>
-			<td>tmp_4</td>
-			<td>tmp_5</td>
-			<td>tmp_6</td>
-		</tr>
-		<tr>
-			<td>tmp_1</td>
-			<td>tmp_2</td>
-			<td>tmp_3</td>
-			<td>tmp_4</td>
-			<td>tmp_5</td>
-			<td>tmp_6</td>
-		</tr>
-		<tr>
-			<td>tmp_1</td>
-			<td>tmp_2</td>
-			<td>tmp_3</td>
-			<td>tmp_4</td>
-			<td>tmp_5</td>
-			<td>tmp_6</td>
-		</tr>
-		<tr id = "{{ request.id }}" ng-repeat="request in uiRequests">
-			<td>{{ request[0] }}</td>
-			<td>{{ request[1] }}</td>
-			<td>{{ request[2] }}</td>
-			<td>{{ request[3] }}</td>
-			<td>{{ request[4] }}</td>
-			<td>{{ request[5] }}</td>
+		<tr id = "{{ software.id }}" ng-repeat="software in uiRequests" ng-click="showSoftwareDetails($event)">
+			<td>{{ software.producerId }}</td>
+			<td>{{ software.publisherName }}</td>
+			<td>{{ software.softCon }}</td>
+			<td>{{ software.licenceCost + "$"}}</td>
+			<td>{{ software.type }}</td>
+			<td>{{ software.platform }}</td>
 		</tr>
 	</tbody>
 </table>
